@@ -1,19 +1,18 @@
-# docker-glibc-builder
+# docker-glibc-builder - i386
 
 A glibc binary package builder in Docker. Produces a glibc binary package that can be imported into a rootfs to run applications dynamically linked against glibc.
+
+This is a version of https://github.com/sgerrand/docker-glibc-builder modified to generate a i386 (32-bit) glibc.
 
 ## Usage
 
 Build a glibc package based on version 2.23 with a prefix of `/usr/glibc-compat`:
 
 ```
-docker run --rm -e STDOUT=1 andyshinn/glibc-builder 2.23 /usr/glibc-compat > glibc-bin.tar.gz
+make
 ```
 
-You can also keep the container around and copy out the resulting file:
+## Requirements
 
-```
-docker run --name glibc-binary andyshinn/glibc-builder 2.23 /usr/glibc-compat
-docker cp glibc-binary:/glibc-bin-2.23.tar.gz ./
-docker rm glibc-binary
-```
+The Docker container "ubuntu32:xenial" needs to be present in your system.
+It can be created using https://github.com/daald/docker-brew-ubuntu-core-32bit
