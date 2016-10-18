@@ -1,1 +1,3 @@
 *.gz
+.built
+.has_xenial32

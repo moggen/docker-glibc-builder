@@ -8,6 +8,7 @@ main() {
 	: "${version:?}" "${prefix:?}"
 
 	{
+		echo "Downloading glibc-$version.tar.gz..."
 		wget -qO- "http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.gz" \
 			| tar zxf -
 		mkdir -p /glibc-build && cd /glibc-build
